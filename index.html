@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merry Christmas Baby</title>
+<style>
+/* BODY */
+body {
+  margin:0;
+  padding:0;
+  background: linear-gradient(to bottom, #2c003e, #8a00c3);
+  font-family:'Segoe UI', sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  overflow:hidden;
+  color:white;
+}
+
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.05);
+  padding:30px 25px;
+  border-radius:25px;
+  text-align:center;
+  width:90%;
+  max-width:500px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.5);
+  position:relative;
+  z-index:2;
+}
+
+/* HEADINGS */
+h1 {
+  font-size:32px;
+  color:#ffdddd;
+  margin-bottom:10px;
+}
+.line {
+  font-size:18px;
+  margin:10px 0;
+}
+.name {
+  font-size:22px;
+  font-weight:bold;
+  color:#ffbbbb;
+}
+.final {
+  font-size:20px;
+  font-weight:bold;
+  color:#ffdddd;
+  margin-top:15px;
+}
+
+/* BUTTON */
+button {
+  margin-top:20px;
+  padding:12px 25px;
+  font-size:16px;
+  background:#ff3366;
+  color:white;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+button:hover { background:#e6004c; }
+
+/* SURPRISE TEXT */
+.hidden {
+  display:none;
+  margin-top:25px;
+}
+.surprise-text {
+  font-size:24px;
+  font-weight:bold;
+  color:#ff99cc;
+  animation: sparkle 1.5s infinite alternate;
+}
+
+/* ANIMATIONS */
+@keyframes sparkle {
+  0% { text-shadow: 0 0 5px #ff99cc, 0 0 10px #ff99cc; }
+  100% { text-shadow: 0 0 20px #ff33aa, 0 0 40px #ff33aa; }
+}
+
+/* SNOW */
+.snowflake {
+  color:white;
+  position:fixed;
+  top:-10px;
+  z-index:3;
+  user-select:none;
+  pointer-events:none;
+  font-size:14px;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity:1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity:0; }
+}
+
+/* HEARTS */
+.heart {
+  color:#ff6699;
+  font-size:18px;
+  animation: float 4s infinite ease-in-out;
+}
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity:0.8; }
+  50% { transform: translateY(-15px) scale(1.1); opacity:1; }
+  100% { transform: translateY(0) scale(1); opacity:0.8; }
+}
+
+/* SPARKLES */
+.sparkle {
+  color:#ffe6ff;
+  font-size:16px;
+  animation: sparkle2 2s infinite alternate;
+}
+@keyframes sparkle2 {
+  0% { opacity:0.3; transform:scale(1); }
+  100% { opacity:1; transform:scale(1.5); }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>🎄 Merry Christmas Baby 🎄</h1>
+<p class="line">To the most special person in my life,</p>
+<p class="line name">Angela Miranda ❤</p>
+<p class="line">Baby, I love you sooo much.</p>
+<p class="line">This Christmas feels magical because of you.</p>
+<p class="final">You are my joy, my peace, my love forever 💞</p>
+
+<button onclick="showSurprise()">Final Surprise 🎁</button>
+
+<div id="surprise" class="hidden">
+<p class="surprise-text">I love you, Baby 💞😘😘</p>
+<p class="surprise-text">Merry Christmas & Happy New Year 🎄✨</p>
+</div>
+</div>
+
+<!-- SNOW -->
+<script>
+function createSnow() {
+  const snowCount = 50;
+  for(let i=0;i<snowCount;i++){
+    let snow = document.createElement('div');
+    snow.className = 'snowflake';
+    snow.style.left = Math.random()*100 + 'vw';
+    snow.style.fontSize = (Math.random()*12+10) + 'px';
+    snow.style.animationDuration = (Math.random()*5+5)+'s';
+    snow.innerText = '❄';
+    document.body.appendChild(snow);
+  }
+}
+createSnow();
+
+function showSurprise(){
+  document.getElementById('surprise').style.display = 'block';
+}
+
+// optional floating hearts
+for(let i=0;i<10;i++){
+  let heart = document.createElement('div');
+  heart.className='heart';
+  heart.style.position='fixed';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.top=Math.random()*100+'vh';
+  heart.style.fontSize=(Math.random()*20+15)+'px';
+  heart.innerText='💖';
+  document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
